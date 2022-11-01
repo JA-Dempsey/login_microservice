@@ -45,5 +45,10 @@ def logout():
         print("Invalid content_type, must be application/json")
         return None
 
+
+@app.route('/current', methods=['GET'])
+def current():
+    return jsonify(users.return_current())
+
 if __name__ == '__main__':
     app.run(debug=True)
