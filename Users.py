@@ -11,18 +11,23 @@ class Users():
         """Adds a new user to the list. Can associate
         any data with the user if wanted, but defaults to None.
         Do not include a password as a type of data."""
+        
+        result = "User is already logged in."
 
         # Only add user if not already logged in
         if self.verify_unique(user):
-            print(self.verify_unique(user))
             self.users[str(user)] = data
             self.current_num += 1
+            result = user + " is now logged in."
+
+        return result
+
+
 
     def verify_unique(self, user):
         """Method that returns False if the given name is already in
         the users dictionary. Otherwise, it will return True."""
         for value in self.users.keys():
-            print(value)
             if user == value:
                 return False
         
@@ -32,12 +37,18 @@ class Users():
         """Removes a new user from the list. Will return any
         data associated with it."""
 
-        data = self.users[user] 
+        result = ""
 
         # Remove the user if it exists.
-        result = self.users.pop(user, "No such user exists.")
+        try:
+            self.users.pop(user)
+            self.current_num -= 1
+            result = user + " is now logged out."
+        except:
+            result = "User not found"
 
-        return result, data  # Tuple, data will be None if no data was associated
+
+        return result
 
     def return_current(self):
         return self.current_num

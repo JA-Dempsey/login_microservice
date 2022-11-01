@@ -20,15 +20,15 @@ def login():
         json = request.json
         
         name = find_name(json)
-        users.add_user(name)
+        result = users.add_user(name)
 
-        print(users.return_current(), name)
+        print(result)
 
         return 'User was added.', 204
 
     else:
         print("Invalid content_type, must be application/json")
-        return None, 204
+        return '', 405
 
 @app.route('/logout', methods=['POST'])
 def logout():
@@ -37,9 +37,11 @@ def logout():
         json = request.json
         
         name = find_name(json)
-        result, Sdata = users.remove_user(name)  # data contains associated data
+        result = users.remove_user(name)  # data contains associated data
 
-        return 'User was removed.', 204
+        print(result)
+
+        return 'User was removed', 204
 
     else:
         print("Invalid content_type, must be application/json")
