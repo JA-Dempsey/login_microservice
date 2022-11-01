@@ -88,7 +88,7 @@ The get request will return the number of current users logged in.
 As an exampe:
 
 curl -X GET  127.0.0.1:5000/current
-Returns the current count, defined in the body of the response.
+Returns the current count, defined in the body of the response as JSON.
 
 ## :memo: License ##
 

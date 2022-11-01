@@ -24,11 +24,11 @@ def login():
 
         print(result)
 
-        return 'User was added.', 204
+        return result, 200
 
     else:
         print("Invalid content_type, must be application/json")
-        return '', 405
+        return "Invalid content_type, must be application/json", 405
 
 @app.route('/logout', methods=['POST'])
 def logout():
@@ -41,16 +41,16 @@ def logout():
 
         print(result)
 
-        return 'User was removed', 204
+        return result, 200
 
     else:
         print("Invalid content_type, must be application/json")
-        return None
+        return "Invalid content_type, must be application/json", 405
 
 
 @app.route('/current', methods=['GET'])
 def current():
-    return jsonify(users.return_current())
+    return jsonify(current_num = users.return_current()), 200
 
 if __name__ == '__main__':
     app.run(debug=True)
