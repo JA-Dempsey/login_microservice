@@ -82,14 +82,13 @@ curl -X POST -H "Content-Type: application/json" -d "{\"name\":\"test\"}" 127.0.
 curl -X POST -H "Content-Type: application/json" -d "{\"name\":\"test\"}" 127.0.0.1:5000/logout
 
 The \ are required in Windows for the command to work to escape the inner "" in the JSON input wanted.
-Each will acknowledge that the user was added as a response.
+Each will acknowledge that the user was added as a response in the terminal for the local server instance.
 
 The get request will return the number of current users logged in.
-
 As an exampe:
 
 curl -X GET  127.0.0.1:5000/current
-Returns the current count
+Returns the current count, defined in the body of the response.
 
 ## :memo: License ##
 
