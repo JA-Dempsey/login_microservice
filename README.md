@@ -90,6 +90,9 @@ As an exampe:
 curl -X GET  127.0.0.1:5000/current
 Returns the current count, defined in the body of the response as JSON.
 
+Refer to the UML for more info:
+<img src="https://github.com/JA-Dempsey/login_microservice/blob/master/microservice_uml.png?raw=true">
+
 ## :memo: License ##
 
 This project is under license from MIT. For more details, see the [LICENSE](LICENSE.md) file.
